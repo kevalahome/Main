@@ -235,32 +235,6 @@
       --transition:  0.22s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ══════════════════════════════════════
-       LIGHT MODE (auto, daylight readability)
-       Keeps the purple/gold identity but flips
-       the canvas for users in bright sunlight
-       or with a light OS/browser preference.
-    ══════════════════════════════════════ */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg:        #FAF8FF;
-        --surface:   #F1ECFB;
-        --card:      #FFFFFF;
-        --card-h:    #F6F1FF;
-        --border:    rgba(124,92,196,0.22);
-        --border-h:  rgba(200,151,58,0.55);
-        --text:      #1A0A2E;
-        --text-dim:  #4A3B73;
-        --text-xdim: #6B5F8A;
-        --gold-dim:  rgba(200,151,58,0.12);
-        --gold-line: rgba(200,151,58,0.45);
-      }
-      .why-stat { color: var(--p600); }
-      .truth-strip { background: var(--gold-dim); border-color: var(--gold-line); }
-      .site-nav { background: rgba(250,248,255,0.94); }
-      .skip-link { color: #FFFFFF; }
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -344,6 +318,7 @@
     .nav-brand {
       font-family: 'DM Serif Display', serif;
       font-size: 19px;
+      font-weight: 700;
       color: var(--text);
       letter-spacing: -0.01em;
     }
@@ -984,6 +959,7 @@
     .footer-brand-name {
       font-family: 'DM Serif Display', serif;
       font-size: 17px;
+      font-weight: 700;
       color: var(--text);
     }
 
@@ -1079,6 +1055,33 @@
       .nav-brand { font-size: 16px; }
       .promise-inner { gap: 18px; }
       .promise-item { font-size: 11px; }
+    }
+    /* ══════════════════════════════════════
+       LIGHT MODE (auto, daylight readability)
+       Keeps the purple/gold identity but flips
+       the canvas for users in bright sunlight
+       or with a light OS/browser preference.
+       Placed last in the stylesheet so it wins
+       over earlier same-specificity rules.
+    ══════════════════════════════════════ */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:        #FAF8FF;
+        --surface:   #F1ECFB;
+        --card:      #FFFFFF;
+        --card-h:    #F6F1FF;
+        --border:    rgba(124,92,196,0.22);
+        --border-h:  rgba(200,151,58,0.55);
+        --text:      #1A0A2E;
+        --text-dim:  #4A3B73;
+        --text-xdim: #6B5F8A;
+        --gold-dim:  rgba(200,151,58,0.12);
+        --gold-line: rgba(200,151,58,0.45);
+      }
+      .why-stat { color: var(--p600); }
+      .truth-strip { background: var(--gold-dim); border-color: var(--gold-line); }
+      .site-nav { background: rgba(250,248,255,0.94); }
+      .skip-link { color: #FFFFFF; }
     }
   </style>
 </head>
