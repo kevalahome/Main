@@ -71,6 +71,23 @@
         }
       },
       {
+        "@type": "LocalBusiness",
+        "@id": "https://www.kevalahome.com/#localbusiness",
+        "name": "Kevala Home",
+        "url": "https://www.kevalahome.com",
+        "image": "https://www.kevalahome.com/KH%20Logo.webp",
+        "description": "Free RERA verification and property cost calculator tools for home buyers and sellers across West Bengal.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kolkata",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        },
+        "areaServed": { "@type": "State", "name": "West Bengal" },
+        "priceRange": "Free",
+        "email": "info@kevalahome.com"
+      },
+      {
         "@type": "WebSite",
         "@id": "https://www.kevalahome.com/#website",
         "url": "https://www.kevalahome.com",
@@ -132,7 +149,7 @@
             "name": "What is the stamp duty on property purchase in West Bengal in 2026?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In West Bengal, stamp duty is 6% of the property value for male buyers and 5% for female buyers, plus 1% registration fee. Properties in the Kolkata Municipal Corporation area may carry additional surcharges. Use the Kevala Home Total Cost Calculator at cost.kevalahome.com for your exact figure."
+              "text": "West Bengal stamp duty is based on property value and location, not gender — there is no stamp duty rebate for women buyers. In urban areas (Corporation/Municipal limits including Kolkata), the rate is 6% for property value up to ₹1 crore and 7% above ₹1 crore. In rural (Panchayat) areas, the rate is 5% up to ₹1 crore and 6% above. Registration fee is an additional 1% in all areas. Use the Kevala Home Total Cost Calculator at cost.kevalahome.com for your exact figure."
             }
           },
           {
@@ -140,7 +157,7 @@
             "name": "What is the true all-in cost of buying a flat in West Bengal?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The true cost includes the base price plus stamp duty (5–6%), registration fee (1%), GST at 5% for under-construction properties, parking charges, maintenance corpus, interior costs, and home loan processing fees. This typically adds 15–20% above the advertised price. Calculate your exact total at cost.kevalahome.com."
+              "text": "The true cost includes the base price plus stamp duty (5–7%, based on location and value, not gender), registration fee (1%), GST at 5% for under-construction properties, parking charges, maintenance corpus, interior costs, and home loan processing fees. This typically adds 15–20% above the advertised price. Calculate your exact total at cost.kevalahome.com."
             }
           },
           {
@@ -206,8 +223,8 @@
       --card-h:    #2E1A58;
       --border:    rgba(124,92,196,0.22);
       --border-h:  rgba(200,151,58,0.40);
-      --text:      #EDE8FF;
-      --text-dim:  #9B8EC4;
+      --text:      #FFFFFF;
+      --text-dim:  #B3A8D9;
       --text-xdim: #6B5F8A;
 
       --green:    #2D9E6B;
@@ -216,6 +233,32 @@
       --radius-card: 16px;
       --radius-btn:  10px;
       --transition:  0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ══════════════════════════════════════
+       LIGHT MODE (auto, daylight readability)
+       Keeps the purple/gold identity but flips
+       the canvas for users in bright sunlight
+       or with a light OS/browser preference.
+    ══════════════════════════════════════ */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:        #FAF8FF;
+        --surface:   #F1ECFB;
+        --card:      #FFFFFF;
+        --card-h:    #F6F1FF;
+        --border:    rgba(124,92,196,0.22);
+        --border-h:  rgba(200,151,58,0.55);
+        --text:      #1A0A2E;
+        --text-dim:  #4A3B73;
+        --text-xdim: #6B5F8A;
+        --gold-dim:  rgba(200,151,58,0.12);
+        --gold-line: rgba(200,151,58,0.45);
+      }
+      .why-stat { color: var(--p600); }
+      .truth-strip { background: var(--gold-dim); border-color: var(--gold-line); }
+      .site-nav { background: rgba(250,248,255,0.94); }
+      .skip-link { color: #FFFFFF; }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -261,7 +304,7 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: rgba(26,10,46,0.88);
+      background: rgba(26,10,46,0.97);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -381,8 +424,8 @@
     }
 
     .truth-strip {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
       border-radius: 40px;
       padding: 12px 28px;
       display: inline-flex;
@@ -800,8 +843,8 @@
       font-family: 'DM Serif Display', serif;
       font-size: 44px;
       font-weight: 400;
-      color: var(--p400);
-      opacity: 0.5;
+      color: var(--p200);
+      opacity: 1;
       line-height: 1;
       margin-bottom: 14px;
     }
@@ -868,7 +911,8 @@
       transition: background var(--transition);
     }
 
-    .faq-btn:hover { background: rgba(255,255,255,0.025); }
+    .faq-btn:hover { background: rgba(200,151,58,0.06); }
+    .faq-btn:hover .faq-chevron { color: var(--gold); }
 
     .faq-chevron {
       flex-shrink: 0;
@@ -1104,22 +1148,22 @@
               <div class="bridge-point">
                 <span class="bridge-icon">⚠️</span>
                 <div>
-                  <strong>Is this project even legal?</strong>
-                  <p>Thousands of WB projects have revoked or expired RERA registration — and are still being marketed.</p>
+                  <strong>Prove your project's credibility instantly</strong>
+                  <p>Thousands of WB projects have revoked or expired RERA registration — buyers are checking. A clean, active status is a closing advantage, not a formality.</p>
                 </div>
               </div>
               <div class="bridge-point">
                 <span class="bridge-icon">⚠️</span>
                 <div>
                   <strong>What will it actually cost?</strong>
-                  <p>Stamp duty, GST, registration, mutation — easily ₹8–15 lakh above the quoted price on a ₹60 lakh flat.</p>
+                  <p>Stamp duty, GST, registration, mutation — easily ₹8–15 lakh above the quoted price on a ₹60 lakh flat. Buyers who know this upfront negotiate less and close faster.</p>
                 </div>
               </div>
               <div class="bridge-point">
                 <span class="bridge-icon">⚠️</span>
                 <div>
-                  <strong>Can I trust this builder?</strong>
-                  <p>Prior delay history, complaint records, escrow compliance — none of this is in the brochure.</p>
+                  <strong>Give buyers proof, not promises</strong>
+                  <p>Verified RERA status and a transparent cost breakdown help sellers and brokers build trust early — and avoid last-minute objections at the table.</p>
                 </div>
               </div>
             </div>
@@ -1277,7 +1321,7 @@
       '30% of delayed real estate projects involved developers with a prior history of missed deadlines. — Ministry of Housing & Urban Affairs, 2023',
       'Under RERA 2016, builders must deposit 70% of buyer payments into a dedicated escrow account — protecting your money if a project stalls.',
       'A property with an Occupancy Certificate attracts zero GST. Under-construction properties attract 5% GST on the agreement value.',
-      'West Bengal stamp duty is 6% for male buyers and 5% for female buyers, plus 1% registration — calculated on the higher of agreement value or circle rate.',
+      'West Bengal stamp duty is location and value-based, not gender-based — 6% up to ₹1 crore and 7% above it in urban areas, plus 1% registration. No rebate for any buyer.',
       'On average, Indian homebuyers spend 6–12 months searching for a property. — Anarock Property Consultants report, 2023',
     ];
 
@@ -1320,7 +1364,7 @@
         name:  'Total Cost Calculator',
         desc:  'The builder quotes one number. The true cost is always higher. Calculate every rupee — stamp duty, GST, registration, and more — before anyone signs anything.',
         features: [
-          'Stamp duty by city and buyer gender',
+          'Stamp duty by city and property value',
           'GST on under-construction property',
           'Registration fee, parking & corpus',
           'Interior cost estimate',
@@ -1362,11 +1406,11 @@
       },
       {
         q: 'What is the stamp duty on property purchase in West Bengal?',
-        a: `In West Bengal, stamp duty is 6% of the property value for male buyers and 5% for female buyers, plus 1% registration fee. Properties in Kolkata Municipal Corporation limits may carry additional surcharges. Use our <a href="https://cost.kevalahome.com">Total Cost Calculator</a> for your exact figure. (Source: West Bengal Stamp Duty Rules)`,
+        a: `Stamp duty in West Bengal is based on property location and value — not gender. There is no rebate for women buyers; an earlier concession was discontinued. In urban areas (Kolkata and other Corporation/Municipal limits), the rate is 6% up to ₹1 crore and 7% above ₹1 crore. In rural Panchayat areas, it's 5% up to ₹1 crore and 6% above. Registration fee is an additional 1% everywhere. Use our <a href="https://cost.kevalahome.com">Total Cost Calculator</a> for your exact figure.`,
       },
       {
         q: 'What is the true all-in cost of buying a flat in West Bengal?',
-        a: `The total cost includes: base price + stamp duty (5–6%) + registration (1%) + GST (5% for under-construction) + parking charges + maintenance corpus + interior costs + loan processing fee. According to Anarock Property Consultants (2023), this typically adds 15–20% above the listed price. Calculate your exact total free at <a href="https://cost.kevalahome.com">cost.kevalahome.com</a>.`,
+        a: `The total cost includes: base price + stamp duty (5–7%, by location and value, not gender) + registration (1%) + GST (5% for under-construction) + parking charges + maintenance corpus + interior costs + loan processing fee. According to Anarock Property Consultants (2023), this typically adds 15–20% above the listed price. Calculate your exact total free at <a href="https://cost.kevalahome.com">cost.kevalahome.com</a>.`,
       },
       {
         q: 'Is RERA registration mandatory for real estate projects in West Bengal?',
