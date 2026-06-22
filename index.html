@@ -726,6 +726,140 @@
     .card-cta:hover .cta-arrow { transform: translateX(2px); }
 
     /* ══════════════════════════════════════
+       INSTALL APP SECTION
+    ══════════════════════════════════════ */
+    .install-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .install-head { max-width: 600px; margin: 0 auto 40px; }
+    .install-head .section-eyebrow { justify-content: center; }
+    .install-head .section-h2 { text-align: center; }
+    .install-head .section-lead { margin: 0 auto; text-align: center; }
+
+    .install-tabs {
+      display: inline-flex;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      margin-bottom: 36px;
+    }
+
+    .install-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dim);
+      background: transparent;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .install-tab.active { background: var(--gold); color: var(--p900); }
+    .install-tab .tab-icon { font-size: 16px; }
+
+    .install-panels { position: relative; max-width: 900px; margin: 0 auto; }
+
+    .install-panel { display: none; }
+    .install-panel.active { display: block; animation: installFadeIn 0.3s ease; }
+
+    @keyframes installFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .install-tool-toggle {
+      display: inline-flex;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+
+    .install-tool-btn {
+      padding: 8px 16px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dim);
+      background: transparent;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .install-tool-btn.active.type-rera { background: var(--green-bg); color: var(--green); border: 1px solid rgba(45,158,107,0.3); }
+    .install-tool-btn.active.type-cost { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-line); }
+
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+
+    .install-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .install-step:hover { border-color: var(--border-h); background: var(--card-h); }
+
+    .install-step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .install-step strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .install-step p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .install-note {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--text-xdim);
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 720px) {
+      .install-steps { grid-template-columns: 1fr; }
+      .install-tabs { width: 100%; max-width: 320px; }
+      .install-tab { flex: 1; justify-content: center; }
+    }
+
+    /* ══════════════════════════════════════
        PROMISE BAR
     ══════════════════════════════════════ */
     .promise-bar {
@@ -1213,6 +1347,35 @@
       </div>
     </section>
 
+    <!-- INSTALL AS APP -->
+    <section class="install-section reveal" aria-labelledby="install-h2">
+      <div class="wrap">
+        <div class="install-head">
+          <p class="section-eyebrow" style="display:flex;align-items:center;gap:8px">📲 Use it like an app</p>
+          <h2 class="section-h2" id="install-h2">Install on your phone in seconds.</h2>
+          <p class="section-lead">No app store needed. Add WB RERA Check and the Cost Calculator to your home screen — opens instantly, works offline, feels native.</p>
+        </div>
+
+        <div class="install-tabs" role="tablist" aria-label="Choose your phone type">
+          <button class="install-tab" data-os="ios" role="tab" aria-selected="false">
+            <span class="tab-icon" aria-hidden="true"></span> iPhone
+          </button>
+          <button class="install-tab" data-os="android" role="tab" aria-selected="false">
+            <span class="tab-icon" aria-hidden="true">🤖</span> Android
+          </button>
+        </div>
+
+        <div class="install-tool-toggle" role="tablist" aria-label="Choose which tool">
+          <button class="install-tool-btn type-rera" data-tool="rera">WB RERA Check</button>
+          <button class="install-tool-btn type-cost" data-tool="cost">Total Cost Calculator</button>
+        </div>
+
+        <div class="install-panels" id="install-panels"></div>
+
+        <p class="install-note">Free · No download size · Updates automatically · Uses zero phone storage for data</p>
+      </div>
+    </section>
+
     <!-- PROMISE BAR -->
     <div class="promise-bar" role="complementary" aria-label="Our commitments">
       <div class="wrap">
@@ -1462,6 +1625,78 @@
         if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
       });
     }
+
+    /* ── INSTALL APP SECTION ── */
+    const installSteps = {
+      ios: {
+        rera: [
+          { title: 'Open in Safari', body: 'Visit wbrera.kevalahome.com in Safari — the install option only appears in Safari, not Chrome.' },
+          { title: 'Tap Share, then Add to Home Screen', body: 'Tap the Share icon in the toolbar, scroll down, and select "Add to Home Screen".' },
+          { title: 'Tap Add', body: 'Confirm the name and tap Add. The WB RERA Check icon now opens full-screen, just like a native app.' },
+        ],
+        cost: [
+          { title: 'Open in Safari', body: 'Visit cost.kevalahome.com in Safari — the install option only appears in Safari, not Chrome.' },
+          { title: 'Tap Share, then Add to Home Screen', body: 'Tap the Share icon in the toolbar, scroll down, and select "Add to Home Screen".' },
+          { title: 'Tap Add', body: 'Confirm the name and tap Add. The Cost Calculator icon now opens full-screen, just like a native app.' },
+        ],
+      },
+      android: {
+        rera: [
+          { title: 'Open in Chrome', body: 'Visit wbrera.kevalahome.com in Chrome on your Android phone.' },
+          { title: 'Tap Install App', body: 'Tap the menu (⋮) and select "Install app" — or tap the install banner if Chrome shows one automatically.' },
+          { title: 'Open from your home screen', body: 'WB RERA Check now appears as an app icon and opens full-screen, with no browser bar.' },
+        ],
+        cost: [
+          { title: 'Open in Chrome', body: 'Visit cost.kevalahome.com in Chrome on your Android phone.' },
+          { title: 'Tap Install App', body: 'Tap the menu (⋮) and select "Install app" — or tap the install banner if Chrome shows one automatically.' },
+          { title: 'Open from your home screen', body: 'Total Cost Calculator now appears as an app icon and opens full-screen, with no browser bar.' },
+        ],
+      },
+    };
+
+    const installPanels = document.getElementById('install-panels');
+    const installTabs = document.querySelectorAll('.install-tab');
+    const installToolBtns = document.querySelectorAll('.install-tool-btn');
+
+    function renderInstallSteps(os, tool) {
+      if (!installPanels) return;
+      const steps = installSteps[os][tool];
+      installPanels.innerHTML = `
+        <div class="install-panel active">
+          <div class="install-steps">
+            ${steps.map((s, i) => `
+              <div class="install-step">
+                <div class="install-step-num">${i + 1}</div>
+                <strong>${s.title}</strong>
+                <p>${s.body}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    let currentOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ? 'ios' : 'android';
+    let currentTool = 'rera';
+
+    function updateInstallUI() {
+      installTabs.forEach(btn => {
+        const active = btn.dataset.os === currentOS;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+      installToolBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tool === currentTool));
+      renderInstallSteps(currentOS, currentTool);
+    }
+
+    installTabs.forEach(btn => {
+      btn.addEventListener('click', () => { currentOS = btn.dataset.os; updateInstallUI(); });
+    });
+    installToolBtns.forEach(btn => {
+      btn.addEventListener('click', () => { currentTool = btn.dataset.tool; updateInstallUI(); });
+    });
+
+    if (installPanels) updateInstallUI();
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
