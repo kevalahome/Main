@@ -186,23 +186,20 @@
        DESIGN TOKENS
     ══════════════════════════════════════ */
     :root {
-      /* Purple palette */
-      --p950: #0D0518;   /* deepest */
-      --p900: #1A0A2E;   /* page base */
-      --p800: #2D1A4A;   /* nav / footer */
-      --p700: #3D2380;   /* card surface */
-      --p600: #4F2FA0;   /* card hover */
-      --p400: #7C5CC4;   /* muted accent */
-      --p200: #C4B5F0;   /* subtle text */
-      --p100: #EDE8FF;   /* near white tint */
+      --p950: #0D0518;
+      --p900: #1A0A2E;
+      --p800: #2D1A4A;
+      --p700: #3D2380;
+      --p600: #4F2FA0;
+      --p400: #7C5CC4;
+      --p200: #C4B5F0;
+      --p100: #EDE8FF;
 
-      /* Gold accent */
       --gold:      #C8973A;
       --gold-lt:   #E8C879;
       --gold-dim:  rgba(200,151,58,0.15);
       --gold-line: rgba(200,151,58,0.25);
 
-      /* Semantic */
       --bg:        var(--p900);
       --surface:   var(--p800);
       --card:      #251545;
@@ -213,7 +210,6 @@
       --text-dim:  #9B8EC4;
       --text-xdim: #6B5F8A;
 
-      /* Green for RERA verified state */
       --green:    #2D9E6B;
       --green-bg: #0E2E1E;
 
@@ -222,9 +218,6 @@
       --transition:  0.22s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ══════════════════════════════════════
-       RESET & BASE
-    ══════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -255,9 +248,6 @@
     }
     .skip-link:focus { top: 16px; }
 
-    /* ══════════════════════════════════════
-       LAYOUT
-    ══════════════════════════════════════ */
     .wrap {
       max-width: 1100px;
       margin: 0 auto;
@@ -292,12 +282,8 @@
       flex-shrink: 0;
     }
 
-    .nav-logo img {
-      height: 38px;
-      width: auto;
-    }
+    .nav-logo img { height: 38px; width: auto; }
 
-    /* Fallback if logo hasn't loaded */
     .nav-logo-fallback {
       height: 38px;
       width: 38px;
@@ -341,13 +327,11 @@
       position: relative;
     }
 
-    /* Subtle radial glow — the one ambient element */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(111,72,196,0.18) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(111,72,196,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -374,7 +358,7 @@
     .hero h1 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(34px, 5.5vw, 60px);
-      font-weight: 400; /* DM Serif Display is elegant at 400 */
+      font-weight: 400;
       line-height: 1.1;
       color: var(--text);
       letter-spacing: -0.02em;
@@ -396,10 +380,6 @@
       line-height: 1.7;
     }
 
-    /* ── TRUTH TICKER — the signature element ── */
-    /* A horizontal strip that cycles through sourced facts.
-       Earns its motion: each fact is something the user needs to know.
-       Quiet, authoritative, never decorative. */
     .truth-strip {
       background: var(--card);
       border: 1px solid var(--border);
@@ -440,8 +420,146 @@
     .truth-text.fade { opacity: 0; }
 
     /* ══════════════════════════════════════
-       TOOLS GRID — scalable by design
-       Auto-fills: 2 now, 3–4 tomorrow, no changes needed
+       BRIDGE SECTION — Problem → Solution
+    ══════════════════════════════════════ */
+    .bridge-section {
+      padding: 0 0 72px;
+    }
+
+    .bridge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .bridge-grid { grid-template-columns: 1fr; }
+    }
+
+    .bridge-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .bridge-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: rgba(251,113,133,0.05);
+      border: 1px solid rgba(251,113,133,0.18);
+      border-radius: 12px;
+    }
+
+    .bridge-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    .bridge-point strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .bridge-point p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .bridge-answer-inner {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      position: sticky;
+      top: 88px;
+    }
+
+    .bridge-give {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .bridge-give-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      text-decoration: none;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .bridge-give-item:hover {
+      border-color: var(--border-h);
+      background: rgba(255,255,255,0.04);
+      transform: translateX(3px);
+    }
+
+    .bridge-give-icon {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .bridge-give-icon.type-rera { background: var(--green-bg); border: 1px solid rgba(45,158,107,0.28); }
+    .bridge-give-icon.type-cost { background: var(--gold-dim); border: 1px solid var(--gold-line); }
+
+    .bridge-give-item strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .bridge-give-item p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .bridge-give-arrow {
+      font-size: 16px;
+      color: var(--text-xdim);
+      align-self: center;
+      flex-shrink: 0;
+      margin-left: auto;
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .bridge-give-item:hover .bridge-give-arrow {
+      color: var(--gold);
+      transform: translateX(3px);
+    }
+
+    .bridge-footer {
+      font-size: 12px;
+      color: var(--text-xdim);
+      text-align: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* ══════════════════════════════════════
+       TOOLS GRID
     ══════════════════════════════════════ */
     .tools-section {
       padding: 0 0 80px;
@@ -463,11 +581,7 @@
       gap: 0;
       position: relative;
       overflow: hidden;
-      transition:
-        transform var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition),
-        background var(--transition);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background var(--transition);
     }
 
     .tool-card:hover {
@@ -477,7 +591,6 @@
       box-shadow: 0 20px 60px rgba(13,5,24,0.5), 0 0 0 1px var(--border-h);
     }
 
-    /* Glow orb per card type */
     .tool-card::after {
       content: '';
       position: absolute;
@@ -629,9 +742,7 @@
     /* ══════════════════════════════════════
        WHY SECTION
     ══════════════════════════════════════ */
-    .why-section {
-      padding: 0 0 80px;
-    }
+    .why-section { padding: 0 0 80px; }
 
     .section-eyebrow {
       font-size: 11px;
@@ -739,9 +850,7 @@
       transition: border-color var(--transition);
     }
 
-    .faq-item.open {
-      border-color: rgba(124,92,196,0.45);
-    }
+    .faq-item.open { border-color: rgba(124,92,196,0.45); }
 
     .faq-btn {
       width: 100%;
@@ -933,9 +1042,7 @@
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- ══════════════════════════════════════
-       NAV
-  ══════════════════════════════════════ -->
+  <!-- NAV -->
   <nav class="site-nav" aria-label="Site navigation">
     <div class="wrap nav-inner">
       <a href="/" class="nav-logo" aria-label="Kevala Home — home">
@@ -953,12 +1060,9 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════
-       MAIN
-  ══════════════════════════════════════ -->
   <main id="main">
 
-    <!-- ── HERO ──────────────────────────── -->
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-h1">
       <div class="wrap">
         <p class="hero-eyebrow" aria-hidden="true">
@@ -984,17 +1088,85 @@
       </div>
     </section>
 
-    <!-- ── TOOLS GRID ─────────────────────── -->
-    <section class="tools-section" aria-labelledby="tools-h2">
+    <!-- BRIDGE: Problem → Solution -->
+    <section class="bridge-section reveal" aria-labelledby="bridge-h2">
       <div class="wrap">
-        <h2 id="tools-h2" class="sr-only">Free tools</h2>
-        <div class="tools-grid" id="tools-grid">
-          <!-- Cards injected by JS — scalable, add new tools by editing the array below -->
+        <div class="bridge-grid">
+
+          <!-- LEFT: The problems -->
+          <div class="bridge-problem">
+            <p class="section-eyebrow">The reality of property search</p>
+            <h2 class="section-h2" id="bridge-h2" style="margin-bottom:20px">
+              You're handed a price.<br>
+              <em style="font-style:italic;color:var(--gold)">Not the full picture.</em>
+            </h2>
+            <div class="bridge-points">
+              <div class="bridge-point">
+                <span class="bridge-icon">⚠️</span>
+                <div>
+                  <strong>Is this project even legal?</strong>
+                  <p>Thousands of WB projects have revoked or expired RERA registration — and are still being marketed.</p>
+                </div>
+              </div>
+              <div class="bridge-point">
+                <span class="bridge-icon">⚠️</span>
+                <div>
+                  <strong>What will it actually cost?</strong>
+                  <p>Stamp duty, GST, registration, mutation — easily ₹8–15 lakh above the quoted price on a ₹60 lakh flat.</p>
+                </div>
+              </div>
+              <div class="bridge-point">
+                <span class="bridge-icon">⚠️</span>
+                <div>
+                  <strong>Can I trust this builder?</strong>
+                  <p>Prior delay history, complaint records, escrow compliance — none of this is in the brochure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: The solution -->
+          <div>
+            <div class="bridge-answer-inner">
+              <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Kevala Home gives you</p>
+              <div class="bridge-give">
+
+                <a href="https://wbrera.kevalahome.com" class="bridge-give-item" aria-label="Open WB RERA Check">
+                  <span class="bridge-give-icon type-rera">🛡️</span>
+                  <div>
+                    <strong>Verified RERA status</strong>
+                    <p>Instant check on any WB project — active, revoked, or expired.</p>
+                  </div>
+                  <span class="bridge-give-arrow">→</span>
+                </a>
+
+                <a href="https://cost.kevalahome.com" class="bridge-give-item" aria-label="Open Total Cost Calculator">
+                  <span class="bridge-give-icon type-cost">🧮</span>
+                  <div>
+                    <strong>True all-in cost</strong>
+                    <p>Every charge, calculated — so no number surprises you at registration.</p>
+                  </div>
+                  <span class="bridge-give-arrow">→</span>
+                </a>
+
+              </div>
+              <p class="bridge-footer">Free · No login · No ads · Official sources only</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ── PROMISE BAR ────────────────────── -->
+    <!-- TOOLS GRID -->
+    <section class="tools-section" aria-labelledby="tools-h2">
+      <div class="wrap">
+        <h2 id="tools-h2" class="sr-only">Free tools</h2>
+        <div class="tools-grid" id="tools-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROMISE BAR -->
     <div class="promise-bar" role="complementary" aria-label="Our commitments">
       <div class="wrap">
         <div class="promise-inner">
@@ -1008,7 +1180,7 @@
       </div>
     </div>
 
-    <!-- ── WHY KEVALA HOME ────────────────── -->
+    <!-- WHY KEVALA HOME -->
     <section class="why-section reveal" aria-labelledby="why-h2">
       <div class="wrap">
         <p class="section-eyebrow">Why Kevala Home</p>
@@ -1041,27 +1213,21 @@
       </div>
     </section>
 
-    <!-- ── FAQ ───────────────────────────── -->
+    <!-- FAQ -->
     <section class="faq-section reveal" aria-labelledby="faq-h2">
       <div class="wrap">
         <p class="section-eyebrow">Common questions</p>
         <h2 class="section-h2" id="faq-h2">Questions buyers and sellers ask</h2>
-
-        <div class="faq-list" id="faq-list">
-          <!-- FAQ items injected by JS -->
-        </div>
+        <div class="faq-list" id="faq-list"></div>
       </div>
     </section>
 
   </main>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="footer-grid">
-
         <div>
           <div class="footer-brand-logo">
             <img src="KH Logo.webp" alt="Kevala Home" height="32"
@@ -1074,7 +1240,6 @@
           </p>
           <a href="mailto:info@kevalahome.com" class="footer-email">info@kevalahome.com</a>
         </div>
-
         <div class="footer-col">
           <h4>Free Tools</h4>
           <ul>
@@ -1082,7 +1247,6 @@
             <li><a href="https://cost.kevalahome.com">Total Cost Calculator</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Resources</h4>
           <ul>
@@ -1091,9 +1255,7 @@
             <li><a href="mailto:info@kevalahome.com">Contact Us</a></li>
           </ul>
         </div>
-
       </div>
-
       <div class="footer-bottom">
         <p class="footer-copy">
           © 2026 Kevala Home. Free for personal and professional use.
@@ -1105,16 +1267,10 @@
     </div>
   </footer>
 
-  <!-- ══════════════════════════════════════
-       JAVASCRIPT
-  ══════════════════════════════════════ -->
   <script>
   (() => {
     'use strict';
 
-    /* ── TRUTH TICKER DATA ─────────────────
-       Add or remove facts here freely.
-       Each fact must have a verified source. */
     const truths = [
       '54% of Indian homebuyers encounter conflicting property information during their search. — MagicBricks Home Buying Survey',
       'The true all-in cost of a property is typically 15–20% above the advertised price, once stamp duty, GST, and registration are included. — Anarock Property Consultants, 2023',
@@ -1130,23 +1286,14 @@
 
     function setTruth(text) {
       el.classList.add('fade');
-      setTimeout(() => {
-        el.textContent = text;
-        el.classList.remove('fade');
-      }, 420);
+      setTimeout(() => { el.textContent = text; el.classList.remove('fade'); }, 420);
     }
 
     if (el) {
       el.textContent = truths[0];
-      setInterval(() => {
-        truthIdx = (truthIdx + 1) % truths.length;
-        setTruth(truths[truthIdx]);
-      }, 5500);
+      setInterval(() => { truthIdx = (truthIdx + 1) % truths.length; setTruth(truths[truthIdx]); }, 5500);
     }
 
-    /* ── TOOLS DATA ────────────────────────
-       To add a new tool: add one object here.
-       The grid reflows automatically. */
     const tools = [
       {
         type:  'rera',
@@ -1184,20 +1331,6 @@
         ctaUrl:  'https://cost.kevalahome.com',
         ctaLabel: 'Open Property Total Cost Calculator',
       },
-      /* ── ADD NEW TOOLS HERE ──────────────
-         Example:
-         {
-           type:  'custom',    // add .type-custom CSS
-           icon:  '📊',
-           tag:   'West Bengal',
-           name:  'Builder Track Record',
-           desc:  'Check a builder\'s delivery history...',
-           features: ['...'],
-           ctaText: 'Check builder',
-           ctaUrl:  'https://builders.kevalahome.com',
-           ctaLabel: 'Open Builder Track Record tool',
-         },
-      ────────────────────────────────────── */
     ];
 
     const grid = document.getElementById('tools-grid');
@@ -1212,11 +1345,7 @@
           <h2 class="card-name">${t.name}</h2>
           <p class="card-desc">${t.desc}</p>
           <ul class="card-features" aria-label="${t.name} features">
-            ${t.features.map(f => `
-              <li>
-                <span class="check" aria-hidden="true">✓</span>
-                <span>${f}</span>
-              </li>`).join('')}
+            ${t.features.map(f => `<li><span class="check" aria-hidden="true">✓</span><span>${f}</span></li>`).join('')}
           </ul>
           <a href="${t.ctaUrl}" class="card-cta" aria-label="${t.ctaLabel}" rel="noopener">
             ${t.ctaText} <span class="cta-arrow" aria-hidden="true">→</span>
@@ -1226,9 +1355,6 @@
       });
     }
 
-    /* ── FAQ DATA ──────────────────────────
-       Questions written for voice search and AI answer engines.
-       Sources cited in answers where factual claims are made. */
     const faqs = [
       {
         q: 'How do I check if a West Bengal real estate project is RERA registered?',
@@ -1282,26 +1408,17 @@
         if (!btn) return;
         const item = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
-        // close all
         faqList.querySelectorAll('.faq-item').forEach(el => {
           el.classList.remove('open');
           el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
         });
-        // toggle
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
       });
     }
 
-    /* ── SCROLL REVEAL ───────────────────── */
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.1 });
 
