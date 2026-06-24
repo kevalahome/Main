@@ -1375,7 +1375,61 @@
     <section class="tools-section" aria-labelledby="tools-h2">
       <div class="wrap">
         <h2 id="tools-h2" class="sr-only">Free tools</h2>
-        <div class="tools-grid" id="tools-grid"></div>
+        <div class="tools-grid" id="tools-grid">
+  <article class="tool-card type-rera" aria-label="WB RERA Check">
+    <div class="card-icon" aria-hidden="true">🛡️</div>
+    <span class="card-tag">West Bengal</span>
+    <h2 class="card-name">WB RERA Check</h2>
+    <p class="card-desc">Verify if a project is legally registered and active under West Bengal RERA — before you pay a single rupee as booking advance.</p>
+    <ul class="card-features" aria-label="WB RERA Check features">
+      <li><span class="check" aria-hidden="true">✓</span><span>Search 4,250+ WB RERA registered projects</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Live active / revoked / expired status</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Official data direct from rera.wb.gov.in</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>10-point buyer safety checklist included</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Installs as an app — works offline</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>No login. No registration. No cost.</span></li>
+    </ul>
+    <a href="https://wbrera.kevalahome.com" class="card-cta" aria-label="Open WB RERA Check — verify a project now" rel="noopener">
+      Verify a project <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+  </article>
+
+  <article class="tool-card type-cost" aria-label="Total Cost Calculator">
+    <div class="card-icon" aria-hidden="true">🧮</div>
+    <span class="card-tag">Buyers &amp; Sellers</span>
+    <h2 class="card-name">Total Cost Calculator</h2>
+    <p class="card-desc">The builder quotes one number. The true cost is always higher. Calculate every rupee — stamp duty, GST, registration, and more — before anyone signs anything.</p>
+    <ul class="card-features" aria-label="Total Cost Calculator features">
+      <li><span class="check" aria-hidden="true">✓</span><span>Stamp duty by city and property value</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>GST on under-construction property</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Registration fee, parking &amp; corpus</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Interior cost estimate</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Home loan EMI at live rates</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Useful for sellers during deal closure</span></li>
+    </ul>
+    <a href="https://cost.kevalahome.com" class="card-cta" aria-label="Open Property Total Cost Calculator" rel="noopener">
+      Calculate true cost <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+  </article>
+
+  <article class="tool-card type-find" aria-label="WB Project Finder">
+    <div class="card-icon" aria-hidden="true">🗺️</div>
+    <span class="card-tag">Project Search</span>
+    <h2 class="card-name">WB Project Finder</h2>
+    <p class="card-desc">Search 4,200+ RERA-verified real estate projects across West Bengal by district, type, and possession year — and see them on an interactive map.</p>
+    <ul class="card-features" aria-label="WB Project Finder features">
+      <li><span class="check" aria-hidden="true">✓</span><span>Filter by district across all of West Bengal</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Residential, commercial, and mixed projects</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Filter by possession year and RERA status</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Interactive map showing project locations</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>Promoter details, amenities, and unit count</span></li>
+      <li><span class="check" aria-hidden="true">✓</span><span>No login. Works offline. Free forever.</span></li>
+    </ul>
+    <a href="https://find.kevalahome.com" class="card-cta" aria-label="Open WB RERA Project Finder" rel="noopener">
+      Find projects <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+  </article>
+</div>
       </div>
     </section>
 
@@ -1537,85 +1591,6 @@
     if (el) {
       el.textContent = truths[0];
       setInterval(() => { truthIdx = (truthIdx + 1) % truths.length; setTruth(truths[truthIdx]); }, 5500);
-    }
-
-    const tools = [
-      {
-        type:  'rera',
-        icon:  '🛡️',
-        tag:   'West Bengal',
-        name:  'WB RERA Check',
-        desc:  'Verify if a project is legally registered and active under West Bengal RERA — before you pay a single rupee as booking advance.',
-        features: [
-          'Search 4,250+ WB RERA registered projects',
-          'Live active / revoked / expired status',
-          'Official data direct from rera.wb.gov.in',
-          '10-point buyer safety checklist included',
-          'Installs as an app — works offline',
-          'No login. No registration. No cost.',
-        ],
-        ctaText:  'Verify a project',
-        ctaUrl:   'https://wbrera.kevalahome.com',
-        ctaLabel: 'Open WB RERA Check — verify a project now',
-      },
-      {
-        type:  'cost',
-        icon:  '🧮',
-        tag:   'Buyers & Sellers',
-        name:  'Total Cost Calculator',
-        desc:  'The builder quotes one number. The true cost is always higher. Calculate every rupee — stamp duty, GST, registration, and more — before anyone signs anything.',
-        features: [
-          'Stamp duty by city and property value',
-          'GST on under-construction property',
-          'Registration fee, parking & corpus',
-          'Interior cost estimate',
-          'Home loan EMI at live rates',
-          'Useful for sellers during deal closure',
-        ],
-        ctaText:  'Calculate true cost',
-        ctaUrl:   'https://cost.kevalahome.com',
-        ctaLabel: 'Open Property Total Cost Calculator',
-      },
-      {
-        type:  'find',
-        icon:  '🗺️',
-        tag:   'Project Search',
-        name:  'WB Project Finder',
-        desc:  'Search 4,200+ RERA-verified real estate projects across West Bengal by district, type, and possession year — and see them on an interactive map.',
-        features: [
-          'Filter by district across all of West Bengal',
-          'Residential, commercial, and mixed projects',
-          'Filter by possession year and RERA status',
-          'Interactive map showing project locations',
-          'Promoter details, amenities, and unit count',
-          'No login. Works offline. Free forever.',
-        ],
-        ctaText:  'Find projects',
-        ctaUrl:   'https://find.kevalahome.com',
-        ctaLabel: 'Open WB RERA Project Finder',
-      },
-    ];
-
-    const grid = document.getElementById('tools-grid');
-    if (grid) {
-      tools.forEach(t => {
-        const card = document.createElement('article');
-        card.className = `tool-card type-${t.type}`;
-        card.setAttribute('aria-label', t.name);
-        card.innerHTML = `
-          <div class="card-icon" aria-hidden="true">${t.icon}</div>
-          <span class="card-tag">${t.tag}</span>
-          <h2 class="card-name">${t.name}</h2>
-          <p class="card-desc">${t.desc}</p>
-          <ul class="card-features" aria-label="${t.name} features">
-            ${t.features.map(f => `<li><span class="check" aria-hidden="true">✓</span><span>${f}</span></li>`).join('')}
-          </ul>
-          <a href="${t.ctaUrl}" class="card-cta" aria-label="${t.ctaLabel}" rel="noopener">
-            ${t.ctaText} <span class="cta-arrow" aria-hidden="true">→</span>
-          </a>
-        `;
-        grid.appendChild(card);
-      });
     }
 
     const faqs = [
