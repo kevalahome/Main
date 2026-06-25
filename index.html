@@ -671,9 +671,44 @@
     [data-theme="light"] .why-source { color: var(--text-4); }
 
     /* ══════════════════════════════════════
-       FAQ SECTION
+       FAQ SECTION — architectural backdrop
     ══════════════════════════════════════ */
-    .faq-section { padding: 80px 0; }
+    .faq-section {
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-bg { position: absolute; inset: 0; z-index: 0; }
+
+    .faq-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(0.10) saturate(0.30);
+    }
+
+    .faq-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        var(--bg) 0%,
+        rgba(26,10,46,0.55) 12%,
+        rgba(26,10,46,0.55) 88%,
+        var(--bg) 100%
+      );
+    }
+
+    [data-theme="light"] .faq-bg::after {
+      background: linear-gradient(
+        180deg,
+        var(--bg) 0%,
+        rgba(253,250,246,0.72) 12%,
+        rgba(253,250,246,0.72) 88%,
+        var(--bg) 100%
+      );
+    }
+
+    .faq-content { position: relative; z-index: 1; }
 
     .faq-list { display: flex; flex-direction: column; gap: 3px; margin-top: 40px; }
 
@@ -740,14 +775,36 @@
     }
 
     /* ══════════════════════════════════════
-       FOOTER
+       FOOTER — heritage building backdrop
     ══════════════════════════════════════ */
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
     }
 
-    .footer-inner { padding: 60px 0 36px; }
+    .footer-bg { position: absolute; inset: 0; z-index: 0; }
+
+    .footer-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      filter: brightness(0.08) saturate(0.25);
+    }
+
+    .footer-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(26,10,46,0.88);
+    }
+
+    [data-theme="light"] .footer-bg::after {
+      background: rgba(245,240,232,0.92);
+    }
+
+    .footer-inner {
+      position: relative; z-index: 1;
+      padding: 60px 0 36px;
+    }
 
     .footer-grid {
       display: grid; grid-template-columns: 2fr 1fr 1fr;
@@ -1082,19 +1139,35 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ — hexagonal/architectural building backdrop -->
     <section class="faq-section reveal" aria-labelledby="faq-h2">
-      <div class="wrap">
-        <p class="section-eyebrow">Common questions</p>
-        <h2 class="section-h2" id="faq-h2">Questions buyers and sellers ask</h2>
-        <div class="faq-list" id="faq-list"></div>
+      <div class="faq-bg" role="img" aria-label="Historic Kolkata architecture">
+        <img
+          src="https://images.unsplash.com/photo-1576485375217-d6a95e34d042?w=1600&q=75&auto=format&fit=crop"
+          alt="" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=75&auto=format&fit=crop'"
+        />
+      </div>
+      <div class="faq-content">
+        <div class="wrap">
+          <p class="section-eyebrow">Common questions</p>
+          <h2 class="section-h2" id="faq-h2">Questions buyers and sellers ask</h2>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER — Indian Museum / heritage backdrop -->
   <footer>
+    <div class="footer-bg" role="img" aria-label="Heritage building colonnade, Kolkata">
+      <img
+        src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=75&auto=format&fit=crop"
+        alt="" loading="lazy"
+        onerror="this.src='https://images.unsplash.com/photo-1576485375217-d6a95e34d042?w=1600&q=75&auto=format&fit=crop'"
+      />
+    </div>
     <div class="footer-inner">
       <div class="wrap">
         <div class="footer-grid">
