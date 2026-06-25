@@ -16,8 +16,9 @@
   <meta name="theme-color" content="#FDFAF6" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" /></noscript>
 
   <script type="application/ld+json">
   {
@@ -34,6 +35,9 @@
   </script>
 
   <style>
+    @font-face { font-family: 'DM Serif Display'; font-display: swap; }
+    @font-face { font-family: 'DM Sans'; font-display: swap; }
+
     /* ══════════════════════════════════════
        DESIGN TOKENS
     ══════════════════════════════════════ */
@@ -206,8 +210,8 @@
     .theme-toggle:hover { background: rgba(184,131,42,0.18); transform: scale(1.08); }
 
     .nav-pill {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--gold);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #7A5418;
       background: var(--gold-dim); border: 1px solid var(--gold-line);
       padding: 5px 13px; border-radius: 20px; white-space: nowrap;
     }
@@ -354,7 +358,8 @@
       text-transform: uppercase; color: var(--gold-lt); white-space: nowrap;
     }
 
-    .editorial-caption h3 {
+    .editorial-caption h3,
+    .editorial-h {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(22px, 3.8vw, 38px);
       font-weight: 400; color: #fff;
@@ -491,7 +496,7 @@
     }
 
     .type-rera .card-tag { color: var(--green); background: var(--green-bg); border: 1px solid var(--green-line); }
-    .type-cost .card-tag { color: var(--gold);  background: var(--gold-dim);  border: 1px solid var(--gold-line); }
+    .type-cost .card-tag { color: #7A5418;  background: var(--gold-dim);  border: 1px solid var(--gold-line); }
     .type-find .card-tag { color: var(--violet); background: var(--violet-bg); border: 1px solid var(--violet-line); }
 
     .card-name {
@@ -915,6 +920,7 @@
           src="https://images.unsplash.com/photo-1558431382-27e303142255?w=1600&q=80&auto=format&fit=crop"
           alt=""
           loading="eager"
+          fetchpriority="high"
           onerror="this.src='https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80&auto=format&fit=crop'"
         />
       </div>
@@ -949,9 +955,9 @@
       />
       <div class="editorial-caption">
         <div class="editorial-rule"><span>Kevala Home</span></div>
-        <h3>Kolkata's people deserve<br>honest property information.</h3>
+        <p class="editorial-h">Kolkata's people deserve<br>honest property information.</p>
         <p>That's exactly what we built Kevala Home to provide.</p>
-      </div>
+     </div>
     </div>
 
     <!-- BRIDGE: Problem → Solution -->
@@ -1088,13 +1094,13 @@
           <p class="section-lead" style="margin:0 auto">No app store needed. Add any Kevala Home tool to your home screen — opens instantly, works offline, feels native.</p>
         </div>
         <div class="install-tabs" role="tablist">
-          <button class="install-tab" data-os="ios">🍎 iPhone</button>
-          <button class="install-tab" data-os="android">🤖 Android</button>
+          <button class="install-tab" data-os="ios" role="tab" aria-selected="false">🍎 iPhone</button>
+          <button class="install-tab" data-os="android" role="tab" aria-selected="false">🤖 Android</button>
         </div>
         <div class="install-tool-toggle" role="tablist">
-          <button class="install-tool-btn type-rera" data-tool="rera">WB RERA Check</button>
-          <button class="install-tool-btn type-cost" data-tool="cost">Total Cost Calculator</button>
-          <button class="install-tool-btn type-find" data-tool="find">Project Finder</button>
+          <button class="install-tool-btn type-rera" data-tool="rera" role="tab" aria-selected="false">WB RERA Check</button>
+          <button class="install-tool-btn type-cost" data-tool="cost" role="tab" aria-selected="false">Total Cost Calculator</button>
+          <button class="install-tool-btn type-find" data-tool="find" role="tab" aria-selected="false">Project Finder</button>
         </div>
         <div class="install-panels" id="install-panels"></div>
         <p class="install-note">Free · No download size · Updates automatically · Uses zero phone storage for data</p>
@@ -1188,7 +1194,7 @@
         <div class="footer-grid">
           <div>
             <div class="footer-brand-logo">
-              <img src="KH Logo.webp" alt="Kevala Home" height="30" onerror="this.style.display='none'" loading="lazy" />
+              <img src="KH Logo.webp" alt="Kevala Home" width="30" height="30" onerror="this.style.display='none'" loading="lazy" />
               <span class="footer-brand-name">Kevala Home</span>
             </div>
             <p class="footer-desc">Free property tools built for West Bengal. Helping buyers verify before they pay, and helping sellers close with confidence.</p>
@@ -1337,8 +1343,16 @@
     let currentTool = 'rera';
 
     function updateInstallUI() {
-      installTabs.forEach(btn => btn.classList.toggle('active', btn.dataset.os === currentOS));
-      installToolBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tool === currentTool));
+      installTabs.forEach(btn => {
+        const active = btn.dataset.os === currentOS;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      installToolBtns.forEach(btn => {
+        const active = btn.dataset.tool === currentTool;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
       renderInstallSteps(currentOS, currentTool);
     }
 
